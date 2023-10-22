@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           Text('A random AWESOME idea:'),
-          Text(appState.current.asLowerCase),
+          BigCard(appState: appState),
 
           ElevatedButton(
             onPressed: () {
@@ -54,5 +54,19 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class BigCard extends StatelessWidget {
+  const BigCard({
+    super.key,
+    required this.appState,
+  });
+
+  final MyAppState appState;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(appState.current.asLowerCase);
   }
 }
